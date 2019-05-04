@@ -1,0 +1,40 @@
+{
+    "name": "xero-css-html-test",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "npm-run-all --parallel build:watch serve",
+        "serve": "browser-sync start --server /var/www/public_html/xero-frontend-dev-test/css-html/ --directory true --port 8082 --watch",
+        "build:watch": "watch 'npm run build:css' /var/www/public_html/xero-frontend-dev-test/css-html/css/scss/",
+        "build:css": "npm run prebuild:css && postcss /var/www/public_html/xero-frontend-dev-test/css-html/css/style.css -d ./css --use autoprefixer",
+        "prebuild:css": "node-sass /var/www/public_html/xero-frontend-dev-test/css-html/css/scss/style.scss /var/www/public_html/xero-frontend-dev-test/css-html/css/style.css",
+        "prebuild:prod": "npm run prebuild:css",
+        "build:prod": "postcss --use autoprefixer < /var/www/css/xero-frontend-dev-test/css-html/css/style.css | postcss --no-map --use cssnano > /var/www/public_html/xero-frontend-dev-test/css-html/css/style.min.css"
+    },
+    "author": "Tim Medcalf",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sass-mq/sass-mq.git"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^9.5.0",
+        "browser-sync": "^2.26.3",
+        "cssnano": "^4.1.10",
+        "eslint": "^5.15.3",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "node-sass": "^4.11.0",
+        "npm-run-all": "^4.1.5",
+        "postcss": "^7.0.14",
+        "postcss-cli": "^6.1.2",
+        "sass-mq": "^5.0.0",
+        "stylelint": "^9.10.1",
+        "stylelint-config-sass-guidelines": "^5.3.0",
+        "stylelint-order": "^2.1.0",
+        "stylelint-scss": "^3.5.4",
+        "watch": "^1.0.2"
+    },
+    "dependencies": {
+
+    }
+}
