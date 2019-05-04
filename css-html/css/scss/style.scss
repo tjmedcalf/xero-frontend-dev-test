@@ -12,21 +12,101 @@ $mq-breakpoints: (
 // GENERIC
 @import "reset";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+// ELEMENTS
+main {
+  h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+}
+
+
 // OBJECTS
-.o-wrapper {
+
+//--- grid
+.o-grid {
+  position: relative;
+  display: grid;
+  height: auto;
+  min-height: calc(100% - 50px);
+  
+  @include mq(desktop) {
+    grid-template-columns: 75% 25%;
+  }
+}
+
+.o-grid__cell {
+  padding: 20px;
+}
+
+.o-grid__cell--aside {
+  background: #D9D8D9;
+  text-align: center;
 
   @include mq(desktop) {
-
+    border-left: 3px solid black;
   }
 }
 
 // COMPONENTS
+//--- header
 .c-header {
-
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
 }
 
-.c-searchBox {
+.c-header__title {
+  color: white;
 
+  @include mq(desktop) {
+    font-size: 1.3em;
+  }
+}
+
+.c-header__search {
+  @include mq($until: tablet) {
+    max-width: 70%;
+  }
+}
+
+//--- searchbox
+.c-searchBox {
+  background: white;
+  display: flex;
+  padding: 2px;
+  justify-content: space-between;
+}
+
+.c-searchBox__input {
+  max-width: calc(100% - 30px);
+  border: none;
+  font-size: 1em;
+
+  &:focus, &:active {
+    outline: none;
+  }
+  &::placeholder {
+    font-style: italic;
+  }
 }
 
 // UTILITIES
