@@ -7,7 +7,7 @@ The box-model is essentially the rendering "rules" for an html element. These ru
 
 ### **2. What is the difference between `display: inline;` and `display: block`?**
 
-Standard block level elements are 100% width of their parent (unless they float, or flex..), and they can recieve padding and margin, whereas an inline element is only the width of it's content, and certain padding and margin properties will have no effect. Inline elements also add additional height for 
+Standard block level elements are 100% width of their parent (unless they float, or flex..), and they can recieve padding and margin, whereas an inline element is only the width of it's content, and certain padding and margin properties will have no effect.
 
 
 ### **3. How is the `z-index` property used and why?**
