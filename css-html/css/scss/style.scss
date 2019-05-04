@@ -67,7 +67,7 @@ main {
 // COMPONENTS
 //--- header
 .c-header {
-  padding: 10px 15px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,7 +102,7 @@ main {
   font-size: 1em;
 
   &:focus, &:active {
-    outline: none;
+    outline: none; //not as good for accessibility but looks better..
   }
   &::placeholder {
     font-style: italic;

@@ -29,18 +29,6 @@ Absolute positioning should be used sparingly as it breaks the box-model to an e
 
 ### **1. Write a function to return the sum of the price of all properties as a single value.**
 
-## < ES 6
-    function() { 
-        var sum = 0;
-    
-        sales.forEach(function(val) {
-            sum = sum + val.price;
-        });
-    
-        return sum;
-    }
-
-## ES 6+
     function() {
         return sales
             .map(x => x.price)
@@ -50,11 +38,29 @@ Absolute positioning should be used sparingly as it breaks the box-model to an e
 
 ### **2. Write a function to only return the items which were sold in 2017.**
 
-
+    function() {
+        const minDate = new Date("01/01/2017").getTime();
+        const maxDate = new Date("31/12/2017").getTime();
+        
+        return sales.map(x => {
+            const date = new Date(x.dateSold).getTime();
+            
+            if(date > minDate && date < maxDate) {
+                return x;
+            }
+        });
+    }
 
 ### **3. Write a function to return an array of all of the itemsSold properties as strings, sorted alphabetically.**
+
+    function() {
+        return sales.map(x => x.itemSold).sort();
+    }
 
 
 
 ### **4. Write a function which takes an id as an argument and returns the sale which matches the id.**
 
+    function(id) {
+        return sales.filter(x => x.id == id);
+    }
