@@ -39,14 +39,14 @@ Absolute positioning should be used sparingly as it breaks the box-model to an e
 ### **2. Write a function to only return the items which were sold in 2017.**
 
     function() {
-        const minDate = new Date("01/01/2017").getTime();
-        const maxDate = new Date("31/12/2017").getTime();
+        const minDate = new Date("2017", "01", "01").getTime();
+        const maxDate = new Date("2017", "12", "31").getTime();
         
-        return sales.map(x => {
+        return sales.filter(x => {
             const date = new Date(x.dateSold).getTime();
             
             if(date > minDate && date < maxDate) {
-                return x;
+                return true;
             }
         });
     }
