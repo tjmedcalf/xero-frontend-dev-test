@@ -2,7 +2,7 @@
 
 My solution was a slight re-factor of the original data access to convert it into an API for the front end. This can be seen in the `src/api` folder. I've stripped out the rendering components and simplified the API calls with a helper method.
 
-Next steps were to implement a front-end using a modern JS library and tooling. Tooling includes Parcel because of it's config-less setup and built in server and transpiling capabilities, I also added es-lint and jest for linting and testing. Unfortauntely the hot-reloading is flaky at best.. I think this is probably a shortcoming of Parcel.
+Next steps were to implement a front-end using a modern JS library and tooling. Tooling includes Parcel for bundling/compilation because of it's config-less setup and built in server and transpiling capabilities, I also added eslint and jest for linting and testing. Unfortauntely the hot-reloading is flaky at best.. I think this is probably a shortcoming of Parcel.
 
 I've componentised the inputs and list, however I've left the majority of controller logic in App.js - this could be isolated out into helper functions or redux could be implemented to separate state management away from rendering logic.
 
