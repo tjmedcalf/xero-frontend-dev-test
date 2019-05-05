@@ -9,3 +9,20 @@ I've componentised the inputs and list, however I've left the majority of contro
 The approach of calling the API every time a checkbox is clicked is not ideal as this filtering could be done in-app with react hooks and state, however doing it the way I did means the data is always fresh.
 
 I have implemented minimal tests but I haven't utilised any type checking other than basic prop-types - this is an area which could have significantly more time spent to improve stability of the app. However it does have the testing suite in place.
+
+There is also no production build script at this time however Parcel makes production bundling quite simple;
+
+    parcel build index.js
+
+# Getting Started
+
+### Pre-requisites:
+
+This application runs best with Babel 7. Everything _should_ be in the package.json.
+
+
+### To run:
+
+
+    npm install
+    npm start
