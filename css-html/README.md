@@ -12,5 +12,7 @@ I used the sass-mq package which makes writing media queries easy as.
 ## Tooling
 For tooling I've used basic npm scripts with node-sass for compliation of sass and post-css to do auto prefixing. It also has the added benefit of browserSync to manage serving with auto reload.
 
+Simply run `npm start` and the app should kick into action!
+
 ## Placeholder
 I added a placeholder to the searchbox, even though it doesn't appear in the comp..
