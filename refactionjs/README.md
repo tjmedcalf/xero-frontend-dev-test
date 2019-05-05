@@ -16,7 +16,7 @@ There is also no production build script at this time however Parcel makes produ
 
 # Getting Started
 
-### Pre-requisites:
+### Prerequisite(s):
 
 This application runs best with Babel 7. Everything _should_ be in the package.json.
 
