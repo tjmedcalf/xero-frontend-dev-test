@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RadioInput = ({id, label, value, handler, checked}) => {
+const RadioInput = ({id, name, label, value, handler, checked}) => {
   return(
     <div className="form-check form-check-inline">
       <input 
           className="form-check-input"
           id={id}
           name={name} 
-          type="radio"
+          type="checkbox"
           value={value} 
           checked={checked} 
           onChange={handler} /> 
@@ -24,7 +24,7 @@ RadioInput.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired
+  checked: PropTypes.bool
 }
 
 export default RadioInput;
