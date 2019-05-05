@@ -4,11 +4,16 @@
   "description": "Refactoring exercise for Node used as a test for potential JavaScript applicants",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm-run-all --parallel open:server open:src lint:watch test:watch",
+    "open:server": "babel-node src/api/getPeople.js",
     "open:src": "cross-env NODE_ENV=development parcel src/index.html --open",
     "test": "jest",
-    "lint": "eslint src/ --ext .js --ext .jsx",
-    "lint:watch": "npm run link -- --watch"
+    "test:watch": "jest --watchAll",
+    "lint": "esw src",
+    "lint:watch": "npm run lint -- --watch"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "repository": {
     "type": "git",
@@ -17,11 +22,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "@hot-loader/react-dom": "^16.8.6",
     "babel-eslint": "^10.0.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-react": "^7.13.0",
     "eslint-watch": "^5.1.2",
     "jest": "^24.8.0",
@@ -31,27 +43,63 @@
     "react-hot-loader": "^4.8.4"
   },
   "dependencies": {
+    "@babel/runtime": "^7.4.4",
+    "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "express": "^4.15.3",
     "handlebars": "^4.0.10",
+    "jquery": "^3.4.1",
     "nedb": "^1.8.0",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "redux": "^4.0.1"
   },
+  "alias": {
+    "react-dom": "@hot-loader/react-dom"
+  },
   "babel": {
-    "presets": ["env", "react"],
-    "plugins": ["react-hot-loader/babel"]
+    "presets": [
+      "@babel/env",
+      "@babel/react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime",
+      "react-hot-loader/babel"
+    ]
   },
   "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
     "parser": "babel-eslint",
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "plugins": ["react"],
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "plugins": [
+      "react"
+    ],
     "env": {
       "browser": true,
       "jest": true,
-      "es6": true
+      "es6": true,
+      "node": true
     }
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./tools/enzymeTestAdapterSetup.js"
+    ]
   }
 }

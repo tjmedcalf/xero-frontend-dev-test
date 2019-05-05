@@ -1,15 +1,8 @@
 import React from 'react';
-import { render } from "react-dom";
+import { render } from 'react-dom';
+import App from './containers/App';
 
-class App extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h2>Hello!</h2>
-      </React.Fragment>
-    )
-  }
-}
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const rootElement = document.getElementById("app");
 
@@ -19,6 +12,5 @@ function renderApp() {
 
 renderApp();
 
-if (module.hot) {
-  module.hot.accept(renderApp);
-}
+
+module.hot.accept(renderApp);
