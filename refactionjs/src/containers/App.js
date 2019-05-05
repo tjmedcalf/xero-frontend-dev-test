@@ -4,7 +4,7 @@ import axios from 'axios';
 import RadioInput from "../components/common/RadioInput";
 import PeopleList from "../components/people/PeopleList";
 
-function App() {
+const App = () => {
   // init hooks!
   let [list, loadData] = useState([]);
   let [filterBy, updateFilter] = useState(["everyone"]);
