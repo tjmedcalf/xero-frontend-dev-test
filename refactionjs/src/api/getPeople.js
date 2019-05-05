@@ -31,6 +31,8 @@ var handleRequest = (opts, req, res) => {
 app.get(['/api/everyone'], (req, res) => handleRequest({}, req, res) );
 app.get(['/api/male'], (req, res) => handleRequest({gender: 'male'}, req, res) );
 app.get(['/api/female'], (req, res) => handleRequest({gender: 'female'}, req, res) );
+app.get(['/api/over30'], (req, res) => handleRequest({age: {$gte: 30}}, req, res) );
+app.get(['/api/under30'], (req, res) => handleRequest({age: {$lt: 30}}, req, res) );
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!'); // eslint-disable-line no-console

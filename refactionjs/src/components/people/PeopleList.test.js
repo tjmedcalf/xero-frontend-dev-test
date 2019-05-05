@@ -10,10 +10,10 @@ describe("People List", () => {
       {name: "tim", age: 33, gender: "male"},
       {name: "alex", age: 30, gender: "female"}
     ];
-  })
+  });
 
-  it('should have 2 items', ()=>{
+  it('should have 2 items', () => {
     const list = shallow(<PeopleList people={mockList} />)
-    expect(list.find("li").length).toEqual(2);
-  })
-})
+    expect(list.find("tr").length).toEqual(3);
+  });
+});
