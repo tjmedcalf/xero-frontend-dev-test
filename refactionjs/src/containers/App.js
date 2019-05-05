@@ -36,10 +36,10 @@ function App() {
   const handleRadio = evt => {
     // Pass the value to state
     if( filterBy.find( x => x == evt.target.value) ) {
-      
+      //Slice when box toggled 
       updateFilter( filterBy.filter((x => x!=evt.target.value)) ); 
     } else {
-      
+      //Append to array when new box ticked
       updateFilter([...filterBy, evt.target.value]); 
     }
   }
