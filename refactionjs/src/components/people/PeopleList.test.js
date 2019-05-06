@@ -12,7 +12,7 @@ describe("People List", () => {
     ];
   });
 
-  it('should have 2 items', () => {
+  it('should have 3 items', () => {
     const list = shallow(<PeopleList people={mockList} />)
     expect(list.find("tr").length).toEqual(3);
   });
